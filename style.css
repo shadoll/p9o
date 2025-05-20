@@ -1,0 +1,189 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+body {
+    font-family: 'Great Vibes', cursive;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    position: relative;
+    background-color: #000;
+}
+
+.progress-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.1);
+    z-index: 10;
+}
+
+.progress-line {
+    height: 100%;
+    width: 0%;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.lang-controls {
+    position: absolute;
+    bottom: 0;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 100;
+    margin: 10px;
+}
+
+#current-lang-name {
+    color: rgba(255, 255, 255, 0.3);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: lowercase;
+}
+
+#next-lang-btn {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.2);
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+#next-lang-btn:hover {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+#next-lang-btn:active {
+    transform: scale(0.95);
+}
+
+.flag-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.flag-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover !important;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    will-change: opacity;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+}
+
+.flag-background.active {
+    opacity: 0.15;
+}
+
+.container {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+    padding: 20px;
+    text-align: center;
+}
+
+.quote {
+    font-size: 3.5rem;
+    line-height: 1.4;
+    opacity: 0;
+    transform: translateY(20px);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    font-family: 'Great Vibes', cursive;
+    font-weight: normal;
+    font-display: swap;
+}
+
+.quote.visible {
+    animation: fadeInUp 1.5s forwards;
+}
+
+.quote.fade-out {
+    animation: fadeOut 1s forwards;
+}
+
+footer {
+    width: 100%;
+    padding: 15px;
+    text-align: center;
+    font-size: 0.9rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    bottom: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #888;
+}
+
+@keyframes typeWriter {
+    from {
+        width: 0
+    }
+
+    to {
+        width: 100%
+    }
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
+
+/* Media query for responsive design */
+@media (max-width: 768px) {
+    .quote {
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .quote {
+        padding: 0 15px;
+    }
+}
